@@ -1,26 +1,15 @@
-import { Button, Grid, Stack, Typography } from "@mui/material";
+import { Masonry } from "@mui/lab";
+import {
+	// Button,
+	// Grid,
+	Stack,
+	Typography,
+} from "@mui/material";
+import { Fragment } from "react";
+import roomList from "@data/rooms";
 import RoomCard from "./RoomCard";
-import { getAllProduct, useGetAllProduct } from "@queries/allProducts";
-import { useEffect } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-
-const roomList = [
-	{
-		id: 1,
-		title: "React Use Hooks",
-		caption: "tam11a/react-use-hooks",
-		description:
-			"Performant, flexible & extensible hooks with easy-to-use flexibility. react-use-hooks reduces the amount of code you need to write while removing unnecessary re-renders in ReactJS.",
-		version: "in lab",
-	},
-	{
-		id: 2,
-		title: "React Use Access",
-		caption: "tam11a/react-use-access",
-		description: "React library to use in ACL(Access List) Feature.",
-		version: "in lab",
-	},
-];
+// import { useGetAllProduct } from "@queries/allProducts";
+// import { useQueryClient } from "@tanstack/react-query";
 
 const Room = () => {
 	// const getProducts = async () => {
@@ -30,11 +19,11 @@ const Room = () => {
 	// 	getProducts();
 	// }, []);
 
-	const queryClient = useQueryClient();
+	// const queryClient = useQueryClient();
 
-	const { data, isLoading, error, isError } = useGetAllProduct();
+	// const { data, isLoading, error, isError } = useGetAllProduct();
 
-	console.log(isLoading, data, isError, error);
+	// console.log(isLoading, data, isError, error);
 
 	return (
 		<Stack
@@ -48,7 +37,7 @@ const Room = () => {
 				variant="h5"
 				textAlign={"center"}
 			>
-				Lorem, ipsum.
+				Lab lobby
 			</Typography>
 			<Typography
 				variant="caption"
@@ -63,25 +52,20 @@ const Room = () => {
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt in
 				impedit blanditiis cupiditate omnis pariatur.
 			</Typography>
-			<Button
-				onClick={() => {
-					queryClient.invalidateQueries(["get-products"]);
+
+			<Masonry
+				columns={{ xs: 1, sm: 2 }}
+				spacing={1}
+				sx={{
+					mt: 2,
 				}}
 			>
-				Get Products
-			</Button>
-			<Grid container>
 				{roomList?.map?.((data) => (
-					<Grid
-						item
-						xs={12}
-						md={6}
-						key={data.id}
-					>
+					<Fragment key={data.id}>
 						<RoomCard {...data} />
-					</Grid>
+					</Fragment>
 				))}
-			</Grid>
+			</Masonry>
 		</Stack>
 	);
 };

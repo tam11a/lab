@@ -23,7 +23,8 @@
 			"@components/*": ["src/components/*"],
       "@instance": ["src/service/instance"],
       "@queries/*": ["src/queries/*"],
-      "@tam11a/react-use-access/*": ["src/packages/react-use-access"]
+      "@data/*": ["src/data/*"],
+      "@tam11a/react-use-access": ["src/packages/react-use-access"]
 		}
   },
   "include": ["src"],

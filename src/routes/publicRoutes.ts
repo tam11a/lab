@@ -9,5 +9,9 @@ export const publicRoutes = [
     {
         path: PUBLIC_ROUTES.ROOMS,
         Component: lazy(() => import("@pages/Room"))
+    },
+    {
+        path: PUBLIC_ROUTES.ROOM,
+        Component: lazy(() => import("@pages/LabRoom"))
     }
 ]

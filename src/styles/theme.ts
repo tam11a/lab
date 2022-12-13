@@ -23,6 +23,12 @@ const theme = createTheme({
       main: '#e86147',
       dark: '#a24432',
       contrastText: '#1c2330'
+    },
+    success: {
+      light: '#82ff82',
+      main: '#4dff4d',
+      dark: '#36b336',
+      contrastText: '#1c2330'
     }
   },
 
@@ -43,6 +49,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: "2px",
+        },
+      },
+    }
   },
 });
 

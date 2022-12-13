@@ -1,6 +1,7 @@
 import { Avatar, Button, Stack, Typography } from "@mui/material";
 import { ImLab } from "react-icons/im";
 import { TbHandClick } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 	return (
@@ -53,6 +54,8 @@ const Home = () => {
 			<Button
 				variant="contained"
 				startIcon={<TbHandClick />}
+				component={Link}
+				to={"/room"}
 			>
 				Get Started!!
 			</Button>
